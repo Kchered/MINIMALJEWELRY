@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Jewelry | Элегантная бижутерия</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">MINIMAL<span>JEWELRY</span></a>
+                
+                <!-- Desktop Menu -->
+                <ul class="nav-menu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#catalog">Каталог</a></li>
+                    <li><a href="#collections">Коллекции</a></li>
+                    <li><a href="#about">О бренде</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                
+                <!-- Icons -->
+                <div class="nav-icons">
+                    <button class="icon-btn search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="icon-btn wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <button class="icon-btn cart-btn" id="cartIcon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#catalog">Каталог</a></li>
+                <li><a href="#collections">Коллекции</a></li>
+                <li><a href="#about">О бренде</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+        
+        <!-- Search Overlay -->
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-container">
+                <input type="text" placeholder="Поиск украшений...">
+                <button class="close-search"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Элегантность в каждой детали</h1>
+                <p>Минималистичная бижутерия ручной работы для современной женщины</p>
+                <a href="#catalog" class="btn btn-primary">Смотреть коллекцию</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Популярные товары</h2>
+                <a href="#catalog" class="view-all">Смотреть все →</a>
+            </div>
+            
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products will be loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="catalog" id="catalog">
+        <div class="container">
+            <div class="section-header">
+                <h2>Каталог</h2>
+                <div class="catalog-controls">
+                    <div class="filter-btn" id="filterToggle">
+                        <i class="fas fa-filter"></i> Фильтры
+                    </div>
+                    <select class="sort-select">
+                        <option value="popular">По популярности</option>
+                        <option value="price-low">Цена: по возрастанию</option>
+                        <option value="price-high">Цена: по убыванию</option>
+                        <option value="new">Новинки</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="catalog-content">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar" id="filtersSidebar">
+                    <div class="filter-group">
+                        <h3>Категория</h3>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="necklace">
+                            <span>Ожерелья</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="earrings">
+                            <span>Серьги</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="bracelet">
+                            <span>Браслеты</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="ring">
+                            <span>Кольца</span>
+                        </label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h3>Материал</h3>
+                        <label class="filter-option">
+                            <input type="checkbox" name="material" value="silver">
+                            <span>Серебро</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="material" value="gold">
+                            <span>Позолота</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="material" value="pearl">
+                            <span>Жемчуг</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="material" value="crystal">
+                            <span>Хрусталь</span>
+                        </label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h3>Цена</h3>
+                        <div class="price-range">
+                            <input type="range" min="0" max="10000" value="5000" class="price-slider" id="priceSlider">
+                            <div class="price-values">
+                                <span>0 ₽</span>
+                                <span id="currentPrice">5000 ₽</span>
+                                <span>10000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-secondary apply-filters">Применить фильтры</button>
+                </aside>
+                
+                <!-- Products Grid -->
+                <div class="products-grid" id="catalogProducts">
+                    <!-- Products will be loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook Section -->
+    <section class="lookbook" id="collections">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lookbook</h2>
+                <p>Идеи для вашего образа</p>
+            </div>
+            
+            <div class="lookbook-grid">
+                <div class="lookbook-item">
+                    <img src="images/cistyi-belyi-list-bumagi-vysusennyi-rozovyi-buton-rozy-v-banke-lenty-ozerel-e-hairstick-oval-naa-setka-kompaktnaa-pudra-zolotaa-spil-ka-i-klatc.jpg" alt="" class="lookbook-image">
+                    <div class="lookbook-content">
+                        <h3>Вечерний образ</h3>
+                        <p>Комбинация жемчужных серег с минималистичным колье</p>
+                    </div>
+                </div>
+                
+                <div class="lookbook-item">
+                    <img src="images/svadebnye-aksessuary.jpg" alt="" class="lookbook-image">
+                    <div class="lookbook-content">
+                        <h3>Повседневный стиль</h3>
+                        <p>Стеклянные браслеты и тонкие кольца для офиса</p>
+                    </div>
+                </div>
+                
+                <div class="lookbook-item">
+                    <img src="images/zakroite-vintaznoe-ozerel-e-radom-s-kartami-taro.jpg" alt="" class="lookbook-image">
+                    <div class="lookbook-content">
+                        <h3>Особый случай</h3>
+                        <p>Хрустальное колье с подвесками для праздника</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Brand -->
+    <section class="about-brand" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>О нашем бренде</h2>
+                    <p>Minimal Jewelry — это история о том, как элегантность встречается с минимализмом. Каждое украшение создается вручную с вниманием к деталям и уважением к материалам.</p>
+                    <p>Мы верим, что истинная красота — в простоте. Наши коллекции созданы для современных женщин, ценящих качество и лаконичный дизайн.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-gem"></i>
+                            <span>Качественные материалы</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-hand-sparkles"></i>
+                            <span>Ручная работа</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Быстрая доставка</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-recycle"></i>
+                            <span>Экологичная упаковка</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <a href="#" class="logo2">MINIMAL<span>JEWELRY</span></a>
+                    <div class="image-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Корзина</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Ваша корзина пуста</p>
+            </div>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span class="total-price">0 ₽</span>
+            </div>
+            <button class="btn btn-primary checkout-btn" id="checkoutBtn">Оформить заказ</button>
+        </div>
+    </div>
+    
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h2>Оформление заказа</h2>
+                <button class="close-checkout" id="closeCheckout">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form class="checkout-form" id="checkoutForm">
+                <div class="form-section">
+                    <h3>Контактная информация</h3>
+                    <div class="form-row">
+                        <input type="text" placeholder="Имя" required>
+                        <input type="text" placeholder="Фамилия" required>
+                    </div>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Телефон" required>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Адрес доставки</h3>
+                    <input type="text" placeholder="Город" required>
+                    <input type="text" placeholder="Улица, дом, квартира" required>
+                    <input type="text" placeholder="Индекс">
+                </div>
+                
+                <div class="form-section">
+                    <h3>Способ доставки</h3>
+                    <div class="delivery-options">
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery" value="courier" checked>
+                            <div class="option-content">
+                                <span>Курьерская доставка</span>
+                                <small>2-3 дня · 300 ₽</small>
+                            </div>
+                        </label>
+                        
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery" value="pickup">
+                            <div class="option-content">
+                                <span>Самовывоз из шоурума</span>
+                                <small>Москва, бесплатно</small>
+                            </div>
+                        </label>
+                        
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery" value="post">
+                            <div class="option-content">
+                                <span>Почта России</span>
+                                <small>5-10 дней · 250 ₽</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Способ оплаты</h3>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card" checked>
+                            <div class="option-content">
+                                <i class="fab fa-cc-visa"></i>
+                                <span>Банковская карта</span>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="sbp">
+                            <div class="option-content">
+                                <i class="fas fa-qrcode"></i>
+                                <span>СБП (Система быстрых платежей)</span>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cash">
+                            <div class="option-content">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Наложенный платеж</span>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="installment">
+                            <div class="option-content">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Рассрочка Тинькофф</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        <span>Я согласен с условиями обработки персональных данных</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary submit-order">Оплатить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Minimal Jewelry</h3>
+                    <p>Элегантная бижутерия ручной работы. Сделано с любовью в России.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Магазин</h4>
+                    <ul>
+                        <li><a href="#catalog">Каталог</a></li>
+                        <li><a href="#collections">Коллекции</a></li>
+                        <li><a href="#about">О бренде</a></li>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Возврат и обмен</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> hello@minimaljewelry.ru</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Примерная, 10</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Оплата</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-mir"></i>
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h4 class="delivery-title">Доставка</h4>
+                    <div class="delivery-methods">
+                        <span>СДЭК</span>
+                        <span>Boxberry</span>
+                        <span>Почта России</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Minimal Jewelry. Все права защищены.</p>
+                <p><a href="#">Политика конфиденциальности</a> | <a href="#">Пользовательское соглашение</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>
